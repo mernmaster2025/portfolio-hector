@@ -16,7 +16,8 @@ type ChatMessage = {
   content: string;
 };
 
-const OPENAI_CHAT_URL = "https://api.openai.com/v1/chat/completions";
+const ANTHROPIC_MESSAGES_URL = "https://api.anthropic.com/v1/messages";
+const ANTHROPIC_VERSION = "2023-06-01";
 const TELEGRAM_MESSAGE_LIMIT = 3900;
 const SESSION_COOKIE = "portfolio_chat_session";
 const MAX_HISTORY_MESSAGES = 12;
@@ -76,9 +77,11 @@ function createSystemPrompt() {
 
 Represent Hector professionally in first person or as "Hector" depending on the user's wording.
 Answer only from the portfolio context below. If a user asks about something not covered, say you do not have that detail and offer a relevant contact path.
-Be concise, warm, and useful. Prioritize Hector's AI, full-stack, mobile, cloud, project, experience, education, and contact information.
+Be concise, warm, and direct. Give the shortest useful answer first.
+Use plain text only. Do not use markdown, bold, italics, bullet symbols, numbered lists, or headings.
+For simple questions, reply in 1-2 short sentences. For broader questions, use at most 4 short sentences.
+Prioritize Hector's full-stack, mobile, cloud, project, experience, education, and contact information.
 Do not answer unrelated topics, including general technical questions, coding help, homework, news, entertainment, or advice that is not specifically about Hector, his services, or his portfolio.
-Keep every answer under 50 sentences.
 Never invent employers, dates, links, credentials, or private personal details.
 Tell users that their chat messages are sent directly to Hector.
 If the conversation reaches the session limit, tell the user to contact Hector directly by email, WhatsApp, Telegram, or Microsoft Teams on request.
@@ -158,12 +161,12 @@ async function sendTelegramExchange({
 }
 
 export async function POST(request: NextRequest) {
-  const apiKey = process.env.OPENAI_API_KEY;
+  const apiKey = process.env.ANTHROPIC_API_KEY;
 
   if (!apiKey) {
     return NextResponse.json(
       {
-        error: "OpenAI is not configured yet. Add OPENAI_API_KEY to your environment variables.",
+        error: "Anthropic is not configured yet. Add ANTHROPIC_API_KEY to your environment variables.",
       },
       { status: 503 },
     );
@@ -183,7 +186,7 @@ export async function POST(request: NextRequest) {
   const bodySessionId = typeof body?.sessionId === "string" ? body.sessionId : undefined;
   const sessionId = existingSessionId || bodySessionId || crypto.randomUUID();
   const messageCount = typeof body?.messageCount === "number" ? body.messageCount : undefined;
-  const model = process.env.OPENAI_MODEL || "gpt-4.1-mini";
+  const model = process.env.ANTHROPIC_MODEL || "claude-haiku-4-5-20251001";
   const visitorIp = getVisitorIp(request);
 
   if (messageCount && messageCount > MAX_SESSION_MESSAGES) {
@@ -201,23 +204,24 @@ export async function POST(request: NextRequest) {
     return response;
   }
 
-  const openAiResponse = await fetch(OPENAI_CHAT_URL, {
+  const anthropicResponse = await fetch(ANTHROPIC_MESSAGES_URL, {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${apiKey}`,
+      "x-api-key": apiKey,
+      "anthropic-version": ANTHROPIC_VERSION,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
       model,
-      temperature: 0.35,
-      max_tokens: 520,
-      user: sessionId,
-      messages: [{ role: "system", content: createSystemPrompt() }, ...messages],
+      max_tokens: 220,
+      temperature: 0.25,
+      system: createSystemPrompt(),
+      messages,
     }),
   });
 
-  if (!openAiResponse.ok) {
-    const errorText = await openAiResponse.text();
+  if (!anthropicResponse.ok) {
+    const errorText = await anthropicResponse.text();
 
     return NextResponse.json(
       {
@@ -228,10 +232,10 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const data = (await openAiResponse.json()) as {
-    choices?: { message?: { content?: string } }[];
+  const data = (await anthropicResponse.json()) as {
+    content?: { type: string; text?: string }[];
   };
-  const reply = data.choices?.[0]?.message?.content?.trim();
+  const reply = data.content?.find((block) => block.type === "text")?.text?.trim();
 
   if (!reply) {
     return NextResponse.json({ error: "Hector's Assistant returned an empty response." }, { status: 502 });

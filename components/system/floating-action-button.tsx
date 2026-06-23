@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Bot, Loader2, MessageCircle, Send, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
+import { ChatMessageContent } from "@/components/system/chat-message-content";
 
 type ChatMessage = {
   id: string;
@@ -233,7 +234,7 @@ export function FloatingActionButton() {
                         : "max-w-[86%] rounded-3xl rounded-bl-lg border border-white/10 bg-white/10 px-4 py-3 text-sm leading-6 text-muted-foreground light:border-slate-200 light:bg-slate-900/5"
                     }
                   >
-                    {message.content}
+                    {message.role === "assistant" ? <ChatMessageContent content={message.content} /> : message.content}
                   </div>
                 </div>
               ))}
