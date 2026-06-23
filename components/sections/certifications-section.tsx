@@ -14,7 +14,7 @@ export function CertificationsSection() {
         <SectionHeading
           eyebrow="Certifications"
           title="Verified engineering credentials."
-          description="HackerRank certifications across frontend engineering, software engineering fundamentals, JavaScript, SQL, Node.js, Python, algorithms, and problem solving."
+          description="Verified credentials from HackerRank and freeCodeCamp across frontend engineering, software engineering, JavaScript, SQL, Node.js, Python, algorithms, and problem solving."
         />
 
         <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-2">

@@ -6,6 +6,7 @@ import type { IconType } from "react-icons";
 import {
   SiAngular,
   SiDjango,
+  SiDart,
   SiDocker,
   SiFastapi,
   SiFlutter,
@@ -39,6 +40,7 @@ const skillIcons: Record<string, IconType> = {
   AWS: FaAws,
   Azure: FaMicrosoft,
   Django: SiDjango,
+  Dart: SiDart,
   Docker: SiDocker,
   FastAPI: SiFastapi,
   Flutter: SiFlutter,

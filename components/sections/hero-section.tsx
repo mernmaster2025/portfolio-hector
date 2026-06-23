@@ -29,7 +29,7 @@ export function HeroSection() {
           <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <Badge className="normal-case tracking-normal">
               <Sparkles className="mr-2 h-3.5 w-3.5 text-accent" />
-              AI-focused engineering for enterprise-grade products
+              Full-stack engineering for scalable enterprise platforms
             </Badge>
           </motion.div>
 

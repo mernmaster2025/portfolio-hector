@@ -1,0 +1,50 @@
+{
+  "title": "Real Estate Platform",
+  "role": "Full Stack Engineer",
+  "company": "Dwellio",
+  "description": "A cross-platform real-estate platform with linked map and list search, rich listing detail, saved searches, and tour booking—backed by a production-ready FastAPI + PostgreSQL API and a Next.js + Material UI admin dashboard for complete property and user management.",
+  "stack": [
+    "Flutter",
+    "Dart",
+    "Riverpod",
+    "FastAPI",
+    "PostgreSQL",
+    "Next.js",
+    "Material UI",
+    "Python",
+    "TypeScript",
+    "JWT Authentication",
+    "REST APIs",
+    "iOS",
+    "Android",
+    "Web",
+    "macOS",
+    "Windows",
+    "Linux"
+  ],
+  "impact": "End-to-end real-estate product spanning map-driven discovery, tour scheduling, and agent contact on six platforms, with a matching backend API and admin dashboard for listings, agents, tours, inquiries, and analytics.",
+  "featured": true,
+  "imageUrls": [
+    "/assets/projects/dwellio-showcase.png",
+    "/assets/projects/dwellio-backend-showcase.png"
+  ],
+  "githubUrl": "https://github.com/esteban-felipe-anaya/Dwellio",
+  "links": [
+    {
+      "label": "Backend GitHub",
+      "href": "https://github.com/esteban-felipe-anaya/Dwellio-Backend"
+    }
+  ],
+  "responsibilities": [
+    "Built linked map and list search with bounds querying, pin clustering, and synchronized map-list interactions.",
+    "Developed rich listing detail with photo galleries, amenities, filters, and schedule-a-tour booking flows.",
+    "Implemented saved searches, favorited properties, and agent contact across iOS, Android, web, macOS, Windows, and Linux.",
+    "Delivered a FastAPI + PostgreSQL REST API with JWT authentication and geospatial listing search.",
+    "Built a Next.js + Material UI admin dashboard for listings, agents, tours, inquiries, users, and analytics."
+  ],
+  "achievements": [
+    "Shipped a production-quality cross-platform real-estate app with Material 3 and adaptive layouts from phone to desktop.",
+    "Backed the Flutter client with a contract-aligned API and staff admin tools for full property and user management.",
+    "Covered the complete real-estate journey from map-driven discovery through tour booking and operational analytics."
+  ]
+}

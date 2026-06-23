@@ -9,7 +9,7 @@ import {
   Rocket,
 } from "lucide-react";
 import { FaGithub, FaLinkedin, FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
-import { SiFlutter, SiKubernetes, SiNodedotjs, SiOpenai, SiReact } from "react-icons/si";
+import { SiFlutter, SiFreecodecamp, SiHackerrank, SiKubernetes, SiNodedotjs, SiOpenai, SiReact } from "react-icons/si";
 import educationJson from "@/data/portfolio/education.json";
 import profileJson from "@/data/portfolio/profile.json";
 import type {
@@ -73,6 +73,8 @@ const iconMap = {
   MapPin,
   Rocket,
   SiFlutter,
+  SiFreecodecamp,
+  SiHackerrank,
   SiKubernetes,
   SiNodedotjs,
   SiOpenai,

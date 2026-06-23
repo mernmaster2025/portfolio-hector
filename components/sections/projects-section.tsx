@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { CalendarDays, ExternalLink, Globe2, Layers3, MapPin, RotateCcw } from "lucide-react";
 import Image from "next/image";
 import { useMemo, useState } from "react";
-import { FaAndroid, FaApple } from "react-icons/fa";
+import { FaAndroid, FaApple, FaGithub } from "react-icons/fa";
 import { SectionHeading } from "@/components/layout/section-heading";
 import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
@@ -12,9 +12,28 @@ import { Card } from "@/components/ui/card";
 import { projects } from "@/lib/portfolio-data";
 import { cn } from "@/lib/utils";
 
-const preferredFilters = ["All", "React", "Next.js", "React Native", "TypeScript", "Python", "Java", "AWS"];
+type ProjectFilter = {
+  label: string;
+  match: (stack: string[]) => boolean;
+};
 
-function ProjectLinkIcon({ type }: { type?: string }) {
+const projectFilterDefinitions: ProjectFilter[] = [
+  { label: "All", match: () => true },
+  { label: "Flutter", match: (stack) => stack.includes("Flutter") },
+  {
+    label: "Mobile",
+    match: (stack) =>
+      stack.some((item) => ["Flutter", "React Native", "Swift", "Kotlin", "Native Mobile"].includes(item)),
+  },
+  { label: "React", match: (stack) => stack.includes("React") },
+  { label: "Next.js", match: (stack) => stack.includes("Next.js") },
+  { label: "React Native", match: (stack) => stack.includes("React Native") },
+  { label: "Python", match: (stack) => stack.includes("Python") },
+  { label: "TypeScript", match: (stack) => stack.includes("TypeScript") },
+  { label: "Blockchain", match: (stack) => stack.some((item) => ["Blockchain", "Solidity", "Web3"].includes(item)) },
+];
+
+function ProjectLinkIcon({ href, type }: { href: string; type?: string }) {
   if (type === "ios") {
     return <FaApple className="h-4 w-4" />;
   }
@@ -25,6 +44,10 @@ function ProjectLinkIcon({ type }: { type?: string }) {
 
   if (type === "web") {
     return <Globe2 className="h-4 w-4" />;
+  }
+
+  if (type === "github" || href.includes("github.com")) {
+    return <FaGithub className="h-4 w-4" />;
   }
 
   return <ExternalLink className="h-4 w-4" />;
@@ -48,7 +71,7 @@ function ProjectActionLink({
       aria-label={label}
       title={label}
     >
-      <ProjectLinkIcon type={type} />
+      <ProjectLinkIcon href={href} type={type} />
     </a>
   );
 }
@@ -59,17 +82,19 @@ export function ProjectsSection() {
   const [flippedProject, setFlippedProject] = useState<string | null>(null);
 
   const filters = useMemo(() => {
-    const stacks = new Set(projects.flatMap((project) => project.stack));
-    const preferred = preferredFilters.filter((filter) => filter === "All" || stacks.has(filter));
-    return preferred;
+    return projectFilterDefinitions.filter(
+      (filter) => filter.label === "All" || projects.some((project) => filter.match(project.stack)),
+    );
   }, []);
 
   const filteredProjects = useMemo(() => {
-    if (activeFilter === "All") {
+    const activeDefinition = projectFilterDefinitions.find((filter) => filter.label === activeFilter);
+
+    if (!activeDefinition || activeFilter === "All") {
       return projects;
     }
 
-    return projects.filter((project) => project.stack.includes(activeFilter));
+    return projects.filter((project) => activeDefinition.match(project.stack));
   }, [activeFilter]);
 
   return (
@@ -84,20 +109,20 @@ export function ProjectsSection() {
         <div className="mb-8 flex flex-wrap justify-center gap-2">
           {filters.map((filter) => (
             <button
-              key={filter}
+              key={filter.label}
               type="button"
               className={cn(
                 "rounded-full border px-4 py-2 text-sm font-semibold transition",
-                activeFilter === filter
+                activeFilter === filter.label
                   ? "border-primary bg-primary text-white shadow-glow"
                   : "border-white/10 bg-white/5 text-muted-foreground hover:border-primary/40 hover:text-foreground light:border-slate-200 light:bg-white",
               )}
               onClick={() => {
-                setActiveFilter(filter);
+                setActiveFilter(filter.label);
                 setFlippedProject(null);
               }}
             >
-              {filter}
+              {filter.label}
             </button>
           ))}
         </div>
@@ -105,7 +130,7 @@ export function ProjectsSection() {
         <div className="grid gap-6 lg:grid-cols-2">
           {filteredProjects.map((project, index) => (
             <Reveal key={project.title} delay={index * 0.08}>
-              <div className="h-[33rem] [perspective:1600px]">
+              <div className="h-[34rem] [perspective:1600px]">
                 <motion.article
                   className="relative h-full cursor-pointer [transform-style:preserve-3d]"
                   animate={{ rotateY: flippedProject === project.title ? 180 : 0 }}
@@ -113,7 +138,7 @@ export function ProjectsSection() {
                   onClick={() => setFlippedProject((current) => (current === project.title ? null : project.title))}
                 >
                   <Card className="absolute inset-0 overflow-hidden p-0 [backface-visibility:hidden]">
-                    <div className="relative h-[12.5rem] overflow-hidden rounded-t-[2rem] border-b border-white/10 bg-[#050816] light:border-slate-200">
+                    <div className="relative h-[14rem] overflow-hidden rounded-t-[2rem] border-b border-white/10 bg-[#050816] light:border-slate-200">
                       {project.imageUrls?.[0] ? (
                         <>
                           <motion.div className="absolute inset-0" whileHover={{ scale: 1.05 }} transition={{ duration: 0.55 }}>

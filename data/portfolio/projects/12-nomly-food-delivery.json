@@ -1,0 +1,50 @@
+{
+  "title": "Food Delivery Platform",
+  "role": "Full Stack Engineer",
+  "company": "Nomly",
+  "description": "A cross-platform food-delivery app for browsing restaurants and menus, building orders, checking out, and tracking couriers live on a map—with a production-ready Django REST Framework + PostgreSQL API and Next.js + Material UI admin platform for restaurants, orders, and couriers.",
+  "stack": [
+    "Flutter",
+    "Dart",
+    "Riverpod",
+    "Django",
+    "PostgreSQL",
+    "Next.js",
+    "Material UI",
+    "Python",
+    "TypeScript",
+    "JWT Authentication",
+    "REST APIs",
+    "iOS",
+    "Android",
+    "Web",
+    "macOS",
+    "Windows",
+    "Linux"
+  ],
+  "impact": "End-to-end food-delivery product spanning restaurant discovery, cart checkout, live courier tracking, and order timelines across six platforms, backed by a custom API and admin dashboard for restaurant, order, and courier management.",
+  "featured": true,
+  "imageUrls": [
+    "/assets/projects/nomly-showcase.png",
+    "/assets/projects/nomly-backend-showcase.png"
+  ],
+  "githubUrl": "https://github.com/esteban-felipe-anaya/Nomly",
+  "links": [
+    {
+      "label": "Backend GitHub",
+      "href": "https://github.com/esteban-felipe-anaya/Nomly-Backend"
+    }
+  ],
+  "responsibilities": [
+    "Built restaurant and menu browsing with categories, search, cart placement, and item customizations.",
+    "Implemented live order tracking on a map with delivery ETA and an order status timeline from placed to delivered.",
+    "Developed address management, reorder shortcuts, and ratings and reviews for restaurants and orders.",
+    "Delivered a Django REST Framework + PostgreSQL API with JWT authentication and server-side order totals.",
+    "Built a Next.js + Material UI admin platform for restaurants, menus, orders, couriers, and analytics."
+  ],
+  "achievements": [
+    "Shipped a cross-platform food-delivery experience for iOS, Android, web, macOS, Windows, and Linux.",
+    "Backed the Flutter client with a full custom backend featuring courier tracking and operational admin tools.",
+    "Connected ordering to fulfillment with real-time tracking and end-to-end restaurant and order management."
+  ]
+}

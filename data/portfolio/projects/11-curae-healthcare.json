@@ -1,0 +1,49 @@
+{
+  "title": "Healthcare Platform",
+  "role": "Full Stack Engineer",
+  "company": "Curae",
+  "description": "A patient-facing healthcare app for doctor discovery and appointment booking, walking users from browsing specialists through slot selection to managing upcoming and past visits—with a production-ready NestJS + MongoDB API and Next.js + Material UI admin dashboard for platform management.",
+  "stack": [
+    "Flutter",
+    "Dart",
+    "Riverpod",
+    "NestJS",
+    "MongoDB",
+    "Next.js",
+    "Material UI",
+    "TypeScript",
+    "JWT Authentication",
+    "REST APIs",
+    "iOS",
+    "Android",
+    "Web",
+    "macOS",
+    "Windows",
+    "Linux"
+  ],
+  "impact": "End-to-end telehealth platform covering doctor discovery, appointment booking, patient profiles, and consultation flows across six platforms, with a matching backend API and admin dashboard for doctors, appointments, specialties, articles, and analytics.",
+  "featured": true,
+  "imageUrls": [
+    "/assets/projects/curae-showcase.png",
+    "/assets/projects/curae-backend-showcase.png"
+  ],
+  "githubUrl": "https://github.com/esteban-felipe-anaya/Curae",
+  "links": [
+    {
+      "label": "Backend GitHub",
+      "href": "https://github.com/esteban-felipe-anaya/Curae-Backend"
+    }
+  ],
+  "responsibilities": [
+    "Built a doctor directory browsable by specialty and rating with calendar-based appointment booking.",
+    "Implemented upcoming and past appointment management, reminders, and patient profiles with basic medical history.",
+    "Developed in-app messaging and consultation request flows with a clean, accessible Material 3 UI.",
+    "Delivered a NestJS + MongoDB REST API with JWT authentication and healthcare entity management.",
+    "Built a Next.js + Material UI admin dashboard for doctors, appointments, specialties, articles, users, and analytics."
+  ],
+  "achievements": [
+    "Shipped a cross-platform telehealth experience for iOS, Android, web, macOS, Windows, and Linux.",
+    "Backed the Flutter client with a contract-aligned API and staff admin tools for full platform operations.",
+    "Covered the complete patient journey from doctor discovery through booking, reminders, and health record access."
+  ]
+}

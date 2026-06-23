@@ -1,0 +1,39 @@
+{
+  "title": "Fintech Banking App",
+  "role": "Full Stack Engineer",
+  "company": "Aurum Bank",
+  "description": "A personal-banking app built around accounts, transfers, and spending insight—presenting balances and transaction history, supporting money movement, and visualizing spending through interactive charts backed by a mock REST API.",
+  "stack": [
+    "Flutter",
+    "Dart",
+    "Riverpod",
+    "Dio",
+    "Freezed",
+    "Material 3",
+    "fl_chart",
+    "REST APIs",
+    "Mock API",
+    "iOS",
+    "Android",
+    "Web",
+    "macOS",
+    "Windows",
+    "Linux"
+  ],
+  "impact": "Cross-platform fintech experience covering account overview, transfers, transaction history, spending insights, card management, and budgets across six platforms.",
+  "featured": true,
+  "imageUrls": ["/assets/projects/aurum-bank-showcase.png"],
+  "githubUrl": "https://github.com/esteban-felipe-anaya/Aurum-Bank",
+  "responsibilities": [
+    "Built accounts overview with balances, quick actions, and card management including freeze and detail views.",
+    "Implemented peer-to-peer and internal money transfers with searchable, categorized transaction history.",
+    "Developed spending insights and breakdowns with interactive charts, budgets, and category-level summaries.",
+    "Delivered adaptive Material 3 layouts from phone to desktop with Riverpod, go_router, and Dio-backed repositories.",
+    "Backed the UI with a mock REST API and repository layer with loading, empty, and error states throughout."
+  ],
+  "achievements": [
+    "Shipped a production-quality fintech app for iOS, Android, web, macOS, Windows, and Linux from a single codebase.",
+    "Turned balances and transactions into actionable spending insight with charts and category breakdowns.",
+    "Covered the core personal-banking loop from account overview through transfers and financial visibility."
+  ]
+}

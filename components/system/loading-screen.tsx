@@ -29,7 +29,7 @@ export function LoadingScreen() {
               animate={{ rotate: 360 }}
               transition={{ duration: 1.1, repeat: Infinity, ease: "linear" }}
             />
-            <span className="font-space text-sm font-bold tracking-[0.3em] text-white">AI</span>
+            <span className="font-space text-sm font-bold tracking-[0.3em] text-white">HR</span>
           </motion.div>
         </motion.div>
       ) : null}

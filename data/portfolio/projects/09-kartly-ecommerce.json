@@ -1,0 +1,35 @@
+{
+  "title": "E-Commerce Platform",
+  "role": "Full Stack Engineer",
+  "company": "Kartly",
+  "description": "A complete shopping experience built around a product catalog, a persistent cart, and a guided checkout. It models the everyday retail flow end to end, from discovery through order confirmation and history, all served by a mock API.",
+  "stack": [
+    "Flutter",
+    "Dart",
+    "REST APIs",
+    "Mock API",
+    "iOS",
+    "Android",
+    "Web",
+    "macOS",
+    "Windows",
+    "Linux"
+  ],
+  "impact": "End-to-end e-commerce storefront covering catalog discovery, cart management, guided checkout, order tracking, and wishlist flows across mobile and desktop platforms.",
+  "featured": true,
+  "imageUrls": ["/assets/projects/kartly-showcase.png"],
+  "githubUrl": "https://github.com/esteban-felipe-anaya/Kartly",
+  "responsibilities": [
+    "Built a product catalog with categories, search, and detail pages.",
+    "Implemented a persistent cart with quantity and variant handling.",
+    "Developed a multi-step checkout flow from address entry through payment, review, and confirmation.",
+    "Added order history with per-order status tracking.",
+    "Implemented wishlist and favorites for saved items.",
+    "Delivered responsive layouts across phone, desktop, and web targets."
+  ],
+  "achievements": [
+    "Delivered a full retail journey from product discovery through order confirmation and history.",
+    "Shipped cross-platform experiences for iOS, Android, web, macOS, Windows, and Linux.",
+    "Backed the storefront with a mock API serving catalog, cart, checkout, and order workflows."
+  ]
+}

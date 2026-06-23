@@ -8,9 +8,9 @@ import { SectionHeading } from "@/components/layout/section-heading";
 import { Card } from "@/components/ui/card";
 
 const storyPoints = [
-  "Senior engineer with 10+ years building web, mobile, AI, and cloud systems for high-growth and enterprise teams.",
-  "Specialized in translating complex business goals into scalable architectures, premium interfaces, and reliable delivery plans.",
-  "Focused on AI assistants, retrieval augmented generation, production integrations, and developer platforms that improve real workflows.",
+  "Senior full stack engineer with 10+ years building web applications, native mobile products, backend services, and cloud infrastructure for high-growth startups and enterprise teams across fintech, delivery, SaaS, and platform engineering.",
+  "I specialize in translating complex business goals into scalable system design, well-structured APIs, premium user experiences, and reliable delivery plans—balancing speed, code quality, and long-term maintainability from discovery through production.",
+  "My work spans robust backend architecture, production integrations, and AI-powered product delivery—including assistants, automation, and LLM-driven workflows that help teams ship faster and create measurable business value.",
 ];
 
 export function AboutSection() {
@@ -19,8 +19,8 @@ export function AboutSection() {
       <div className="container relative z-10">
         <SectionHeading
           eyebrow="About Me"
-          title="A product-minded engineer for AI-era platforms."
-          description="I combine deep full stack delivery with AI architecture, cloud systems, and technical leadership for teams that need polished products and durable engineering."
+          title="A product-minded engineer for scalable digital products."
+          description="I combine full-stack delivery, backend architecture, cloud systems, and technical leadership to help teams ship polished products with durable engineering."
         />
 
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
@@ -49,7 +49,7 @@ export function AboutSection() {
           <div className="space-y-6">
             <Reveal>
               <Card className="p-8">
-                <h3 className="font-sora text-2xl font-semibold">Engineering leadership with product taste.</h3>
+                <h3 className="font-sora text-2xl font-semibold">Full-stack leadership with product focus.</h3>
                 <div className="mt-6 space-y-4">
                   {storyPoints.map((point) => (
                     <p key={point} className="leading-8 text-muted-foreground">
