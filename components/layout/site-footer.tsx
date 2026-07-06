@@ -4,7 +4,7 @@ import { ArrowUp } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ContraHireMeButton } from "@/components/system/contra-hire-me-button";
-import { FreelancerHireMeButton } from "@/components/system/freelancer-hire-me-button";
+// import { FreelancerHireMeButton } from "@/components/system/freelancer-hire-me-button"; // hidden per request
 import { socialLinks } from "@/lib/portfolio-data";
 
 export function SiteFooter() {
@@ -24,7 +24,7 @@ export function SiteFooter() {
 
           <div className="flex flex-wrap items-center justify-center gap-3">
             <ContraHireMeButton />
-            <FreelancerHireMeButton />
+            {/* <FreelancerHireMeButton /> hidden per request */}
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-3 md:justify-end">

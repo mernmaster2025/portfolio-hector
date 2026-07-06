@@ -8,7 +8,7 @@ import {
   MapPin,
   Rocket,
 } from "lucide-react";
-import { FaGithub, FaLinkedin, FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaMicrosoft, FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
 import { SiFlutter, SiFreecodecamp, SiHackerrank, SiKubernetes, SiNodedotjs, SiOpenai, SiReact } from "react-icons/si";
 import educationJson from "@/data/portfolio/education.json";
 import profileJson from "@/data/portfolio/profile.json";
@@ -40,6 +40,7 @@ type RawContactMethod = RawIconItem & {
   valueFromProfile?: ProfileField;
   href?: string;
   hrefFromProfile?: ProfileField;
+  hidden?: boolean;
 };
 
 type RawSocialLink = RawIconItem & {
@@ -65,6 +66,7 @@ const iconMap = {
   CloudCog,
   FaGithub,
   FaLinkedin,
+  FaMicrosoft,
   FaTelegramPlane,
   FaWhatsapp,
   Globe2,
@@ -162,7 +164,9 @@ export const projects: Project[] = loadJsonContext<Project>(
 
 export const contactMethods: ContactMethod[] = loadJsonContext<RawContactMethod>(
   (require as WebpackRequire).context<RawContactMethod>("../data/portfolio/contact", false, /\.json$/),
-).map((item) => hydrateContactMethod(item));
+)
+  .filter((item) => !item.hidden)
+  .map((item) => hydrateContactMethod(item));
 
 export const socialLinks: SocialLink[] = loadJsonContext<RawSocialLink>(
   (require as WebpackRequire).context<RawSocialLink>("../data/portfolio/social", false, /\.json$/),
